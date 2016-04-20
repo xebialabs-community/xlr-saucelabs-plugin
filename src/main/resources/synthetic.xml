@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+
+    THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS
+    FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
+
+-->
+<synthetic xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd" xmlns="http://www.xebialabs.com/deployit/synthetic" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <type type="saucelabs.Task" extends="xlrelease.PythonScript" virtual="true">
+        <property name="iconLocation" default="saucelabs/saucelabs.png" hidden="true" />
+
+        <property name="saucelabsServer" category="input" label="Server" referenced-type="saucelabs.Server" kind="ci"/>
+        <property name="username" category="input" label="username" required="false" />
+        <property name="password" password="true" category="input" required="false" />
+
+    </type>
+
+    <type type="saucelabs.GetJobs" extends="saucelabs.Task" description="Get Job info">
+        <property name="scriptLocation" default="saucelabs/GetJobs.py" hidden="true" />
+
+        <property name="jobs" category="output" kind="map_string_string" description="List of jobs."/>
+    </type>
+
+	<type type="saucelabs.Server" extends="configuration.HttpConnection"/>
+</synthetic>
