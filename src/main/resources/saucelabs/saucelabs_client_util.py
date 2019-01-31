@@ -10,6 +10,8 @@ from saucelabs.saucelabs_client import SauceLabsClient
 class SauceLabsClientUtil(object):
 
     @staticmethod
-    def create_saucelabs_client(container, username, password):
-        client = SauceLabsClient.create_client(container, username, password)
+    def create_saucelabs_client(buildId, testName, testNameWildCard, hourRange, limit, container, 
+        acctUsername, accessKey):
+        client = SauceLabsClient.create_client(buildId, testName, testNameWildCard, hourRange, limit, container, 
+            acctUsername, accessKey)
         return client

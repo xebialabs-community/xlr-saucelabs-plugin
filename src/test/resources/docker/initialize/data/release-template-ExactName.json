@@ -1,0 +1,131 @@
+[{
+  "id": "Applications/Release22bce27b7f1241cc98bbcf6a34ae7a77",
+  "type": "xlrelease.Release",
+  "title": "SaucelabsJobNameExactTemplate",
+  "scheduledStartDate": "2019-01-16T15:00:00Z",
+  "flagStatus": "OK",
+  "overdueNotified": false,
+  "maxConcurrentReleases": 100,
+  "releaseTriggers": [],
+  "teams": [
+    {
+      "id": "Applications/Release22bce27b7f1241cc98bbcf6a34ae7a77/Team36bc4b3938114212b28187997b36ab46",
+      "type": "xlrelease.Team",
+      "teamName": "Release Admin",
+      "members": [],
+      "roles": [],
+      "permissions": [
+        "release#edit",
+        "release#lock_task",
+        "release#start",
+        "release#reassign_task",
+        "release#edit_blackout",
+        "template#view",
+        "release#edit_security",
+        "release#abort",
+        "release#view",
+        "release#edit_task"
+      ]
+    },
+    {
+      "id": "Applications/Release22bce27b7f1241cc98bbcf6a34ae7a77/Team1ff419a758c54037bc6d1f7d6de0c525",
+      "type": "xlrelease.Team",
+      "teamName": "Template Owner",
+      "members": [
+        "admin"
+      ],
+      "roles": [],
+      "permissions": [
+        "template#edit",
+        "template#lock_task",
+        "template#view",
+        "template#edit_triggers",
+        "template#edit_security",
+        "template#create_release"
+      ]
+    }
+  ],
+  "memberViewers": [],
+  "roleViewers": [],
+  "attachments": [],
+  "phases": [
+    {
+      "id": "Applications/Release22bce27b7f1241cc98bbcf6a34ae7a77/Phased172cc8265c04baf863b4283f8356c00",
+      "type": "xlrelease.Phase",
+      "title": "New Phase",
+      "flagStatus": "OK",
+      "overdueNotified": false,
+      "tasks": [
+        {
+          "id": "Applications/Release22bce27b7f1241cc98bbcf6a34ae7a77/Phased172cc8265c04baf863b4283f8356c00/Task4e8f4a5834b44648b99fe71e0832faef",
+          "type": "xlrelease.CustomScriptTask",
+          "title": "GetJobsNameExact",
+          "flagStatus": "OK",
+          "overdueNotified": false,
+          "comments": [],
+          "container": "Applications/Release22bce27b7f1241cc98bbcf6a34ae7a77/Phased172cc8265c04baf863b4283f8356c00",
+          "attachments": [],
+          "status": "PLANNED",
+          "waitForScheduledStartDate": true,
+          "delayDuringBlackout": false,
+          "postponedDueToBlackout": false,
+          "hasBeenFlagged": false,
+          "hasBeenDelayed": false,
+          "failuresCount": 0,
+          "variableMapping": {
+            "pythonScript.jobs_output": "${testJSON}",
+            "pythonScript.jobs": "${testJobs}"
+          },
+          "tags": [],
+          "dueSoonNotified": false,
+          "locked": false,
+          "watchers": [],
+          "pythonScript": {
+            "id": "Applications/Release22bce27b7f1241cc98bbcf6a34ae7a77/Phased172cc8265c04baf863b4283f8356c00/Task4e8f4a5834b44648b99fe71e0832faef/PythonScript",
+            "type": "saucelabs.GetJobs",
+            "customScriptTask": "Applications/Release22bce27b7f1241cc98bbcf6a34ae7a77/Phased172cc8265c04baf863b4283f8356c00/Task4e8f4a5834b44648b99fe71e0832faef",
+            "saucelabsServer": "Configuration/Custom/saucelabs",
+            "testName": "TestName4",
+            "testNameWildCard": false,
+            "jobs": {}
+          }
+        }
+      ],
+      "release": "Applications/Release22bce27b7f1241cc98bbcf6a34ae7a77",
+      "status": "PLANNED"
+    }
+  ],
+  "queryableStartDate": "2019-01-16T15:00:00Z",
+  "realFlagStatus": "OK",
+  "status": "TEMPLATE",
+  "tags": [],
+  "variables": [
+    {
+      "id": "Applications/Release22bce27b7f1241cc98bbcf6a34ae7a77/Variable1fec98ec1e924353808de1eedbf655f4",
+      "type": "xlrelease.MapStringStringVariable",
+      "key": "testJobs",
+      "requiresValue": false,
+      "showOnReleaseStart": false,
+      "value": {}
+    },
+    {
+      "id": "Applications/Release22bce27b7f1241cc98bbcf6a34ae7a77/Variablef34b62b7d32447aa9b99fbe99d319aca",
+      "type": "xlrelease.StringVariable",
+      "key": "testJSON",
+      "requiresValue": false,
+      "showOnReleaseStart": false
+    }
+  ],
+  "calendarPublished": false,
+  "tutorial": false,
+  "abortOnFailure": false,
+  "allowConcurrentReleasesFromTrigger": true,
+  "runningTriggeredReleasesCount": 0,
+  "createdFromTrigger": false,
+  "extensions": [],
+  "autoStart": false,
+  "automatedResumeCount": 0,
+  "riskScore": "000",
+  "totalRiskScore": "0000",
+  "riskProfile": "Configuration/riskProfiles/RiskProfileDefault"
+}]

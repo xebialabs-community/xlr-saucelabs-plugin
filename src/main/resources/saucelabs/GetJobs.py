@@ -11,6 +11,8 @@ if saucelabsServer is None:
     print "No server provided."
     sys.exit(1)
 
-saucelabs_client = SauceLabsClientUtil.create_saucelabs_client(saucelabsServer, username, password)
+saucelabs_client = SauceLabsClientUtil.create_saucelabs_client(buildId, testName, testNameWildCard, hourRange, 
+    limit, saucelabsServer, acctUsername, accessKey)
 
-jobs = saucelabs_client.get_jobs()
+jobs_output, jobs = saucelabs_client.get_jobs()
+
