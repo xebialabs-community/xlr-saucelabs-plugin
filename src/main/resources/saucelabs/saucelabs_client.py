@@ -1,8 +1,7 @@
-#
-# THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS
-# FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
-#
+# Copyright (c) 2019 XebiaLabs
+
+# This software is released under the MIT License.
+# https://opensource.org/licenses/MIT
 
 import sys, time, ast, re
 import com.xhaus.jyson.JysonCodec as json
