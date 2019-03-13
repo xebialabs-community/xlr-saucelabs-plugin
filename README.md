@@ -4,7 +4,6 @@
 
 [![Build Status][xlr-saucelabs-travis-image] ][xlr-saucelabs-travis-url]
 [![Codacy Badge][xlr-saucelabs-plugin-codacy-image] ][xlr-saucelabs-plugin-codacy-url]
-[![Code Climate][xlr-saucelabs-plugin-code-climate-image] ][xlr-saucelabs-plugin-code-climate-url]
 [![License: MIT][xlr-saucelabs-plugin-license-image] ][xlr-saucelabs-plugin-license-url]
 [![Github All Releases][xlr-saucelabs-plugin-downloads-image] ]()
 
@@ -151,11 +150,8 @@ To clean up Demo or Dev Docker containers, run
 [xlr-saucelabs-travis-image]: https://travis-ci.org/xebialabs-community/xlr-saucelabs-plugin.svg?branch=master
 [xlr-saucelabs-travis-url]: https://travis-ci.org/xebialabs-community/xlr-saucelabs-plugin
 
-[xlr-saucelabs-plugin-codacy-image]: https://api.codacy.com/project/badge/Grade/d85d740ba9124d1e8fba24b2df376d13
+[xlr-saucelabs-plugin-codacy-image]: https://api.codacy.com/project/badge/Grade/4679e2c7b7fb4740adc021b452a04ef9
 [xlr-saucelabs-plugin-codacy-url]: https://www.codacy.com/app/ladamato/xlr-saucelabs-plugin
-
-[xlr-saucelabs-plugin-code-climate-image]: https://codeclimate.com/github/xebialabs-community/xlr-saucelabs-plugin/badges/gpa.svg
-[xlr-saucelabs-plugin-code-climate-url]: https://codeclimate.com/github/xebialabs-community/xlr-saucelabs-plugin/maintainability
 
 [xlr-saucelabs-plugin-license-image]: https://img.shields.io/badge/License-MIT-yellow.svg
 [xlr-saucelabs-plugin-license-url]: https://opensource.org/licenses/MIT
