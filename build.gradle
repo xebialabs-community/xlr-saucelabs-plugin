@@ -8,8 +8,6 @@ plugins {
 }
 
 
-version="1.0.0.RC2"
-
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'eclipse'
@@ -22,6 +20,14 @@ repositories {
   maven {
     url 'https://dist.xebialabs.com/public/maven2'
   }
+}
+
+if (!project.hasProperty('release.scope')) {
+  project.ext['release.scope'] = 'patch'
+}
+
+if (!project.hasProperty('release.useLastTag')) {
+  project.ext['release.useLastTag'] = true
 }
 
 
@@ -76,25 +82,8 @@ afterEvaluate {
                     println "Finished running integration tests for $project"
                 }
             }
-// The following runs integration testing but leaves the container running for dev or demo use
-  task demoDev (dependsOn: ['runDockerCompose',
-                            'sleep',
-                             'subIntegrationTest']) {
-                doLast {
-                    println "Running demoDev for $project, run task stopDockerCompose to shut down and remove docker containers"
-                }
-            }
 }
 
-
-
-if (!project.hasProperty('release.scope')) {
-  project.ext['release.scope'] = 'patch'
-}
-
-if (!project.hasProperty('release.useLastTag')) {
-  project.ext['release.useLastTag'] = true
-}
 
 // Cannot use the following because filtering corrupts
 //     .png and other binary files in the project

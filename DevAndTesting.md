@@ -92,7 +92,7 @@ During development of a new feature you will be interacting with an actual Sauce
 **Tips**
 1. This site is very useful for verifying and formatting JSON - [JSON Formatter](https://jsonformatter.org/)
 2. Example SauceLabs REST api curl command: `curl -u <put username here>:<put access code here> "http://saucelabs.com/rest/v1/<put username here>/jobs?full=true"`
-3. Export templates as xlr files and then unarchive. You can then format the JSON files and edit them.  In order to reimport the un-archived JSON files, you must edit the files to make them valid JSON -  surround the file content with square brackets `[  ]`. 
+3. Export templates as xlr files and then unarchive. You can then format the JSON files and edit them.  In order to reimport the un-archived JSON files, you must edit the files and surround the JSON content with square brackets `[  ]`. 
 4. Example of XLR REST api curl command that retrieves a successful archive release: `curl -u admin:admin "http://localhost:15516/api/v1/releases/archived/Applications/Release6b18eaeaaeb143d5ba1840f3653037da"`
 
 

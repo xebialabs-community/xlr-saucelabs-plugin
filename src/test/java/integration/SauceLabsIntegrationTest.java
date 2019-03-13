@@ -21,7 +21,6 @@ import java.util.Scanner;
 
 import org.json.simple.JSONObject;
 import org.junit.AfterClass;
-import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -237,7 +236,7 @@ public class SauceLabsIntegrationTest {
     public void confirmCommentAll() {
         assertTrue(archivedResponse_All != null);
         String comments = archivedResponse_All.get("phases[0].tasks[0].comments[0].text").toString();
-        Assert.assertTrue(readFile("testExpected/getAll_Comments.txt").equals(comments));
+        assertTrue(readFile("testExpected/getAll_Comments.txt").equals(comments));
         System.out.println("confirmCommentAll passed ");
 
     }
@@ -250,7 +249,7 @@ public class SauceLabsIntegrationTest {
         // No need to compare to expected results, just make sure the response contains 401 code
         assertTrue(failedResponse_BadCreds != null);
         String comments = failedResponse_BadCreds.get("phases[0].tasks[0].comments[0].text").toString();
-        Assert.assertTrue(comments.contains("401"));
+        assertTrue(comments.contains("401"));
         System.out.println("confirmTaskCredsOverrideServerCreds passed ");
     }
 
@@ -258,7 +257,7 @@ public class SauceLabsIntegrationTest {
     public void confirmCommentBuildId() {
         assertTrue(archivedResponse_BuildId != null);
         String comments = archivedResponse_BuildId.get("phases[0].tasks[0].comments[0].text").toString();
-        Assert.assertTrue(readFile("testExpected/buildId_Comments.txt").equals(comments));
+        assertTrue(readFile("testExpected/buildId_Comments.txt").equals(comments));
         System.out.println("confirmCommentBuildId passed ");
     }
 
@@ -266,7 +265,7 @@ public class SauceLabsIntegrationTest {
     public void confirmCommentExactName() {
         assertTrue(archivedResponse_ExactName != null);
         String comments = archivedResponse_ExactName.get("phases[0].tasks[0].comments[0].text").toString();
-        Assert.assertTrue(readFile("testExpected/exactName_Comments.txt").equals(comments));
+        assertTrue(readFile("testExpected/exactName_Comments.txt").equals(comments));
         System.out.println("confirmCommentExactName passed ");
     }
 
@@ -274,7 +273,7 @@ public class SauceLabsIntegrationTest {
     public void confirmCommentWildCardName() {
         assertTrue(archivedResponse_WildCardName != null);
         String comments = archivedResponse_WildCardName.get("phases[0].tasks[0].comments[0].text").toString();
-        Assert.assertTrue(readFile("testExpected/wildCardName_Comments.txt").equals(comments));
+        assertTrue(readFile("testExpected/wildCardName_Comments.txt").equals(comments));
         System.out.println("confirmCommentWildCardName passed ");
     }
 
@@ -282,7 +281,7 @@ public class SauceLabsIntegrationTest {
     public void confirmCommentTimeRestrict() {
         assertTrue(archivedResponse_TimeRestrict != null);
         String comments = archivedResponse_TimeRestrict.get("phases[0].tasks[0].comments[0].text").toString();
-        Assert.assertTrue(readFile("testExpected/timeRestrict_Comments.txt").equals(comments));
+        assertTrue(readFile("testExpected/timeRestrict_Comments.txt").equals(comments));
         System.out.println("confirmCommentTimeRestrict passed ");
     }
 
@@ -291,7 +290,7 @@ public class SauceLabsIntegrationTest {
         assertTrue(archivedResponse_SizeRestrict != null);
         String comments = archivedResponse_SizeRestrict.get("phases[0].tasks[0].comments[0].text").toString();
         //System.out.println("SizeRestrict comments - "+comments);
-        Assert.assertTrue(readFile("testExpected/sizeRestrict_Comments.txt").equals(comments));
+        assertTrue(readFile("testExpected/sizeRestrict_Comments.txt").equals(comments));
         System.out.println("confirmCommentSizeRestrict passed ");
     }
 
@@ -299,7 +298,7 @@ public class SauceLabsIntegrationTest {
     public void confirmCommentTimeAndSize() {
         assertTrue(archivedResponse_TimeAndSize != null);
         String comments = archivedResponse_TimeAndSize.get("phases[0].tasks[0].comments[0].text").toString();
-        Assert.assertTrue(readFile("testExpected/timeAndSize_Comments.txt").equals(comments));
+        assertTrue(readFile("testExpected/timeAndSize_Comments.txt").equals(comments));
         System.out.println("confirmCommentTimeAndSize passed ");
     }
 
@@ -307,7 +306,7 @@ public class SauceLabsIntegrationTest {
     public void confirmCommentSizeAndWildCard() {
         assertTrue(archivedResponse_SizeAndWildCard != null);
         String comments = archivedResponse_SizeAndWildCard.get("phases[0].tasks[0].comments[0].text").toString();
-        Assert.assertTrue(readFile("testExpected/sizeAndWildCard_Comments.txt").equals(comments));
+        assertTrue(readFile("testExpected/sizeAndWildCard_Comments.txt").equals(comments));
         System.out.println("confirmCommentSizeAndWildCard passed ");
     }
 
