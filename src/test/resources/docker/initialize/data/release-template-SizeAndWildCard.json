@@ -1,0 +1,113 @@
+[{
+  "id": "Applications/Release237b55521bea4f49bf3a0f4a4fa1f4d7",
+  "type": "xlrelease.Release",
+  "title": "SauceLabsSizeAndWildCardNameTemplate",
+  "scheduledStartDate": "2019-01-16T15:00:00Z",
+  "flagStatus": "OK",
+  "overdueNotified": false,
+  "maxConcurrentReleases": 100,
+  "releaseTriggers": [],
+  "teams": [
+    {
+      "id": "Applications/Release237b55521bea4f49bf3a0f4a4fa1f4d7/Teamf95cd3e6d5564900974e4e10a3a660f1",
+      "type": "xlrelease.Team",
+      "teamName": "Release Admin",
+      "members": [],
+      "roles": [],
+      "permissions": [
+        "release#edit",
+        "release#lock_task",
+        "release#start",
+        "release#reassign_task",
+        "release#edit_blackout",
+        "template#view",
+        "release#edit_security",
+        "release#abort",
+        "release#view",
+        "release#edit_task"
+      ]
+    },
+    {
+      "id": "Applications/Release237b55521bea4f49bf3a0f4a4fa1f4d7/Teamfe5b794dff46ac9c887be6c28d38cf",
+      "type": "xlrelease.Team",
+      "teamName": "Template Owner",
+      "members": [
+        "admin"
+      ],
+      "roles": [],
+      "permissions": [
+        "template#edit",
+        "template#lock_task",
+        "template#view",
+        "template#edit_triggers",
+        "template#edit_security",
+        "template#create_release"
+      ]
+    }
+  ],
+  "memberViewers": [],
+  "roleViewers": [],
+  "attachments": [],
+  "phases": [
+    {
+      "id": "Applications/Release237b55521bea4f49bf3a0f4a4fa1f4d7/Phase97ec40cf8a7440fbad938a45b23b0f43",
+      "type": "xlrelease.Phase",
+      "title": "New Phase",
+      "flagStatus": "OK",
+      "overdueNotified": false,
+      "tasks": [
+        {
+          "id": "Applications/Release237b55521bea4f49bf3a0f4a4fa1f4d7/Phase97ec40cf8a7440fbad938a45b23b0f43/Taskdc3b8116a6bc4c7fae102aac72df17d3",
+          "type": "xlrelease.CustomScriptTask",
+          "title": "GetJobsSizeAndWildCardName",
+          "flagStatus": "OK",
+          "overdueNotified": false,
+          "comments": [],
+          "container": "Applications/Release237b55521bea4f49bf3a0f4a4fa1f4d7/Phase97ec40cf8a7440fbad938a45b23b0f43",
+          "attachments": [],
+          "status": "PLANNED",
+          "waitForScheduledStartDate": true,
+          "delayDuringBlackout": false,
+          "postponedDueToBlackout": false,
+          "hasBeenFlagged": false,
+          "hasBeenDelayed": false,
+          "failuresCount": 0,
+          "variableMapping": {},
+          "tags": [],
+          "dueSoonNotified": false,
+          "locked": false,
+          "watchers": [],
+          "pythonScript": {
+            "id": "Applications/Release237b55521bea4f49bf3a0f4a4fa1f4d7/Phase97ec40cf8a7440fbad938a45b23b0f43/Taskdc3b8116a6bc4c7fae102aac72df17d3/PythonScript",
+            "type": "saucelabs.GetJobs",
+            "customScriptTask": "Applications/Release237b55521bea4f49bf3a0f4a4fa1f4d7/Phase97ec40cf8a7440fbad938a45b23b0f43/Taskdc3b8116a6bc4c7fae102aac72df17d3",
+            "saucelabsServer": "Configuration/Custom/saucelabs",
+            "testName": "Name4",
+            "testNameWildCard": true,
+            "limit": 2,
+            "jobs": {}
+          }
+        }
+      ],
+      "release": "Applications/Release237b55521bea4f49bf3a0f4a4fa1f4d7",
+      "status": "PLANNED"
+    }
+  ],
+  "queryableStartDate": "2019-01-16T15:00:00Z",
+  "realFlagStatus": "OK",
+  "status": "TEMPLATE",
+  "tags": [],
+  "variables": [],
+  "calendarPublished": false,
+  "tutorial": false,
+  "abortOnFailure": false,
+  "allowConcurrentReleasesFromTrigger": true,
+  "runningTriggeredReleasesCount": 0,
+  "createdFromTrigger": false,
+  "extensions": [],
+  "autoStart": false,
+  "automatedResumeCount": 0,
+  "riskScore": "000",
+  "totalRiskScore": "0000",
+  "riskProfile": "Configuration/riskProfiles/RiskProfileDefault"
+}]

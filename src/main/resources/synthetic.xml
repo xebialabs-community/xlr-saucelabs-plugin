@@ -1,10 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!--
+# Copyright (c) 2019 XebiaLabs
 
-    THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS
-    FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
-
+# This software is released under the MIT License.
+# https://opensource.org/licenses/MIT
 -->
 <synthetic xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd" xmlns="http://www.xebialabs.com/deployit/synthetic" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
@@ -12,16 +11,22 @@
         <property name="iconLocation" default="saucelabs/saucelabs.png" hidden="true" />
 
         <property name="saucelabsServer" category="input" label="Server" referenced-type="saucelabs.Server" kind="ci"/>
-        <property name="username" category="input" label="username" required="false" />
-        <property name="password" password="true" category="input" required="false" />
+        <property name="acctUsername" category="input" label="Account Username"  required="false"/>
+        <property name="accessKey" label="Access Key" password="true" category="input" required="false"/>
 
     </type>
 
     <type type="saucelabs.GetJobs" extends="saucelabs.Task" description="Get Job info">
         <property name="scriptLocation" default="saucelabs/GetJobs.py" hidden="true" />
 
-        <property name="jobs" category="output" kind="map_string_string" description="List of jobs."/>
+        <property name="buildId" label="Build ID" category="input" kind="string" required="false" description="Optional Filter" />
+        <property name="testName" label="Test Name" category="input" kind="string"  required="false" description="Optional Filter"/>
+        <property name="testNameWildCard" label="Make Test Name a Wild Card" category="input" kind="boolean" default="false" description="Optional Filter - If checked, the Test Name filter will be used as a wild card" />
+        <property name="hourRange" label="Time Range in Hours" category="input" kind="integer" required="false"  description="Optional Filter - Limit the past number of hours to search. Default of zero returns all available."/>
+        <property name="limit" label="Limit Number of Jobs" category="input" kind="integer" required="false"  description="Optional Filter - Return a limited number of jobs, starting with most recent. Default of zero returns all available."/>
+        <property name="jobs" category="output" kind="map_string_string" description="List of Jobs with Pass/Fail, if available"/>
+        <property name="jobs_output" category="output" kind="string" label="JSON Output" description="JSON Response from Sauce Labs Server"/>
     </type>
 
-	<type type="saucelabs.Server" extends="configuration.HttpConnection"/>
+	<type type="saucelabs.Server" extends="configuration.HttpConnection" label="Sauce Labs: Server"/>
 </synthetic>

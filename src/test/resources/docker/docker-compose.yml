@@ -1,0 +1,23 @@
+# Copyright (c) 2019 XebiaLabs
+
+# This software is released under the MIT License.
+# https://opensource.org/licenses/MIT
+
+version: '3'
+services:
+  xlr:
+    image: xebialabsunsupported/xlr_dev_run:v8.0.0.2
+    volumes:
+      - ~/xl-licenses:/license
+      - ./../../../../:/data
+    ports:
+      - "15516:5516"
+    links:
+      - saucelabs-stub
+
+  saucelabs-stub:
+    build: ../saucelabs-stub
+    ports:
+      - "5099:5000"
+    volumes:
+      - ./../saucelabs-stub/app/:/saucelabs-stub/

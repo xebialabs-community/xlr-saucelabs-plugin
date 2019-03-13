@@ -1,8 +1,7 @@
-#
-# THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS
-# FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
-#
+# Copyright (c) 2019 XebiaLabs
+
+# This software is released under the MIT License.
+# https://opensource.org/licenses/MIT
 
 from saucelabs.saucelabs_client import SauceLabsClient
 
@@ -10,6 +9,8 @@ from saucelabs.saucelabs_client import SauceLabsClient
 class SauceLabsClientUtil(object):
 
     @staticmethod
-    def create_saucelabs_client(container, username, password):
-        client = SauceLabsClient.create_client(container, username, password)
+    def create_saucelabs_client(buildId, testName, testNameWildCard, hourRange, limit, container, 
+        acctUsername, accessKey):
+        client = SauceLabsClient.create_client(buildId, testName, testNameWildCard, hourRange, limit, container, 
+            acctUsername, accessKey)
         return client
