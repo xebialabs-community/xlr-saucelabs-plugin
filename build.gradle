@@ -52,7 +52,7 @@ task subIntegrationTest (type: Test){
   doFirst{
     println 'In task subIntegrationTest'
   }
-  // do not automatically for tests
+  // do not automatically scan for tests
   scanForTestClasses = false 
   // explicitly include the integration test
   include '**/*IntegrationTest.class'
@@ -67,13 +67,21 @@ afterEvaluate {
   sleep.mustRunAfter runDockerCompose
   subIntegrationTest.mustRunAfter sleep
   stopDockerCompose.mustRunAfter subIntegrationTest
+
   task integrationTesting (dependsOn: ['runDockerCompose',
                             'sleep',
                             'subIntegrationTest',
                             'stopDockerCompose']) {
-//                              'subIntegrationTest']) {
                 doLast {
                     println "Finished running integration tests for $project"
+                }
+            }
+// The following runs integration testing but leaves the container running for dev or demo use
+  task demoDev (dependsOn: ['runDockerCompose',
+                            'sleep',
+                             'subIntegrationTest']) {
+                doLast {
+                    println "Running demoDev for $project, run task stopDockerCompose to shut down and remove docker containers"
                 }
             }
 }
@@ -88,12 +96,14 @@ if (!project.hasProperty('release.useLastTag')) {
   project.ext['release.useLastTag'] = true
 }
 
-processResources.configure {
-  filter ReplaceTokens, tokens: [
-    'project.version': version.toString(),
-    'project.name'   : rootProject.name
-  ]
-}
+// Cannot use the following because filtering corrupts
+//     .png and other binary files in the project
+//processResources.configure {
+//  filter ReplaceTokens, tokens: [
+//    'project.version': version.toString(),
+//    'project.name'   : rootProject.name
+//  ]
+//}
 
 dependencies {
   // Place rest-assured before JUnit dependency to make sure correct Hamcrest is used
@@ -104,7 +114,9 @@ dependencies {
 }
 
 license {
-  header project.file('License.md')
+  header rootProject.file('License.md')
   strictCheck false
-  excludes(["**/*.txt", "**/*.json"])
+  excludes(["**/*.png", "**/*.sh", "**/*.txt", "**/*.json", "**/*.pyc", "**/*.yml"])
+  ext.year = Calendar.getInstance().get(Calendar.YEAR)
+  ext.name = 'XEBIALABS'
 }
