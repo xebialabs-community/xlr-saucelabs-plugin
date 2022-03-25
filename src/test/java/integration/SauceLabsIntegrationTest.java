@@ -1,5 +1,5 @@
 /**
- * Copyright 2019 XEBIALABS
+ * Copyright 2022 XEBIALABS
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
  *
@@ -29,7 +29,26 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
+import org.junit.ClassRule;
+import org.skyscreamer.jsonassert.JSONAssert;
+import org.skyscreamer.jsonassert.JSONCompareMode;
+
+import org.testcontainers.containers.DockerComposeContainer;
+
+import integration.util.SauceLabsTestHelper;
+
+
 public class SauceLabsIntegrationTest {
+
+    @ClassRule
+    public static DockerComposeContainer docker =
+        new DockerComposeContainer(new File("build/resources/test/docker/docker-compose.yml"))
+            .withLocalCompose(true);
+
+    @BeforeClass
+    public static void initialize() throws Exception {
+        SauceLabsTestHelper.initializeXLR();
+    }
 
     private static final String BASE_URI = "http://localhost:15516/api/v1";
     
@@ -67,6 +86,8 @@ public class SauceLabsIntegrationTest {
 
     @BeforeClass
     public static void setup() throws InterruptedException {
+        System.out.println("Pausing for 1 minutes, waiting for XLR to start. ");
+        Thread.sleep(60000);
 
         String plannedRelId_All = "";
         String plannedRelId_TimeAndSize = "";
